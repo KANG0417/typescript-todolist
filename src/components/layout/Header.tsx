@@ -3,14 +3,16 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <StyledWrapper>
-      <StyledTitle>To Do List</StyledTitle>
-    </StyledWrapper>
+    <StyledHeaderWrapper>
+      <StyledTitle>오늘의 할일</StyledTitle>
+    </StyledHeaderWrapper>
   );
 };
 
 export default Header;
 
-const StyledWrapper = styled.header``;
+const StyledHeaderWrapper = styled.header`
+  background-color: yellow;
+`;
 
 const StyledTitle = styled.h1``;
