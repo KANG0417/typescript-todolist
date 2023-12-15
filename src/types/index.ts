@@ -1,4 +1,4 @@
-export type Todos = {
+export type TTodo = {
   id: string;
   createAt: string;
   title: string;

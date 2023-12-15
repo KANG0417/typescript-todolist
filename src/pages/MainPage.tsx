@@ -2,41 +2,22 @@ import Input from "components/Input";
 import TodoList from "components/TodoList";
 import { useState } from "react";
 import styled from "styled-components";
-import { Todos } from "types";
+import { TTodo } from "types";
 
 const MainPage = () => {
   const localStroageTodo = localStorage.getItem("todos");
-  const initialTodos: Todos[] = localStroageTodo
+  const initialTodos: TTodo[] = localStroageTodo
     ? JSON.parse(localStroageTodo)
     : [];
-  const [todos, setTodos] = useState<Todos[]>(initialTodos);
-  const oldestWorking = todos.filter((todo) => !todo.isDone);
-  const oldestDone = todos.filter((todo) => todo.isDone);
-  const latestWorking = todos
-    .filter((todo) => !todo.isDone)
-    .sort(
-      (a, b) => new Date(b.createAt).getTime() - new Date(a.createAt).getTime()
-    );
-  const latestDone = todos
-    .filter((todo) => todo.isDone)
-    .sort(
-      (a, b) => new Date(b.createAt).getTime() - new Date(a.createAt).getTime()
-    );
+  const [todos, setTodos] = useState<TTodo[]>(initialTodos);
 
   return (
     <>
       <StyledMainWrapper>
-        <Input
-          latestWorking={latestWorking}
-          latestDone={latestDone}
-          setTodos={setTodos}
-        />
-        <TodoList
-          oldestWorking={oldestWorking}
-          oldestDone={oldestDone}
-          latestWorking={latestWorking}
-          latestDone={latestDone}
-        />
+        <Input todos={todos} setTodos={setTodos} />
+
+        <TodoList todos={todos} setTodos={setTodos} isActive={true} />
+        <TodoList todos={todos} setTodos={setTodos} isActive={false} />
       </StyledMainWrapper>
     </>
   );
