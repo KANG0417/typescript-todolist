@@ -1,10 +1,10 @@
-import Layout from "./pages/Layout";
+import Router from "shared/Router";
 
 function App() {
   return (
-    <div>
-      <Layout />
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 
