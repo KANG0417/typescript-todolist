@@ -1,6 +1,6 @@
 import { ChangeEvent, ChangeEventHandler, useState } from "react";
 
-const useTodoFormInput = (): [string, ChangeEventHandler<HTMLInputElement>] => {
+const useTodoInput = (): [string, ChangeEventHandler<HTMLInputElement>] => {
   const [value, setValue] = useState<string>("");
 
   const handler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -10,4 +10,4 @@ const useTodoFormInput = (): [string, ChangeEventHandler<HTMLInputElement>] => {
   return [value, handler];
 };
 
-export default useTodoFormInput;
+export default useTodoInput;

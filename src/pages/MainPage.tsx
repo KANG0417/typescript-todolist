@@ -15,7 +15,6 @@ const MainPage = () => {
     <>
       <StyledMainWrapper>
         <Input todos={todos} setTodos={setTodos} />
-
         <TodoList todos={todos} setTodos={setTodos} isActive={true} />
         <TodoList todos={todos} setTodos={setTodos} isActive={false} />
       </StyledMainWrapper>
@@ -26,7 +25,10 @@ const MainPage = () => {
 export default MainPage;
 
 const StyledMainWrapper = styled.main`
-  border: 1px solid black;
-  width: 500px;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
+  max-width: 1200px;
+  height: 600px;
+  margin: 20px auto 20px auto;
 `;

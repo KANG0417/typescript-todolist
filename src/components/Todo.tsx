@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import styled from "styled-components";
 import { TTodo } from "types";
 import Button from "./common/Button";
@@ -38,21 +38,47 @@ const Todo = ({ todos, todo, isActive, setTodos }: TodoProps) => {
 
   return (
     <TodoContainer>
-      <div key={todo.id}>
-        <p>{todo.title}</p>
-        <p>{todo.createAt}</p>
-        <p>{todo.content}</p>
+      <ul key={todo.id}>
+        <li className="todoTitle">{todo.title}</li>
+        <li>{todo.createAt}</li>
+        <li className="todoContent">{todo.content}</li>
         <Button onClick={() => onClickSwitchButtonHandler(todo.id)}>
           {isActive ? "완료" : "취소"}
         </Button>
         <Button onClick={() => onClickRemoveButtonHandler(todo.id)}>
           삭제
         </Button>
-      </div>
+      </ul>
     </TodoContainer>
   );
 };
 
 export default Todo;
 
-const TodoContainer = styled.div``;
+const TodoContainer = styled.div`
+  display: flex;
+  justify-content: left;
+  max-width: 250px;
+  height: 150px;
+  margin: 10px;
+  padding: 10px;
+  line-height: 2rem;
+  background-color: var(--white);
+  border-radius: 10px;
+
+  li {
+    line-height: 2.5rem;
+  }
+
+  .todoTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--font-color);
+  }
+
+  .todoContent {
+    font-size: 2rem;
+    min-width: 200px;
+    min-height: 60px;
+  }
+`;
